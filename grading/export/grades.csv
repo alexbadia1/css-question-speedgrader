@@ -1,0 +1,8 @@
+Canvas ID,Full Name,Implementation Points,Visual Points,Total Points,Comments,CSS Filename
+696969,Alex Badia,420,69,489,,badia_alex123250_question_5177500_14851024_style.css
+666666,Charlie Brown,333,333,666,"[-0.5 point] Did not set ""display: flex;"" in .wall
+[-0.5 point] Did not set ""flexDirection: column;"" in .wall
+[-0.5 point] Did not set ""flexDirection: row-reverse;"" in .row:nth-child(3)
+[-0.5 point] Did not set ""justifyContent: space-around;"" in .row:nth-child(1)
+[-0.5 point] Did not set ""justifyContent: space-between;"" in .row:nth-child(2)
+[-0.5 point] Did not set ""justifyContent: space-evenly;"" in .wall",brown_charlie113676_question_5177500_14845817_style.css

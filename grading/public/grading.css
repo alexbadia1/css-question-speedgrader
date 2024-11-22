@@ -1,0 +1,76 @@
+#grading-tools {
+  width: 666px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#grade-all-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+}
+
+#export-all-button {
+  position: absolute;
+  bottom: 0;
+  left: 175px;
+}
+
+/* Auto Grader */
+
+#grading-tools-form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: tan;
+  gap: 16px;
+  width: 100%;
+}
+
+#grading-tools-autograder {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  font-size: 12px;
+}
+
+/* Submissions Filter */
+
+#grading-tools-filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 3px solid black;
+  height: 100vh;
+  width: 250px;
+}
+
+#grading-tools-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: tan;
+  border-bottom: 1px solid #e9ecef;
+  gap: 16px;
+  width: 100%;
+}
+
+#grading-tools-submissions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 100%;
+  overflow-y: scroll;
+  background-color: #e2e2e2;
+}

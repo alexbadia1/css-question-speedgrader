@@ -1,0 +1,1363 @@
+<!-- DO NOT MODIFY THIS HTML FILE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CS 409 Midterm" />
+  <link rel="stylesheet" href="readonly.css" />
+  <link rel="stylesheet" href="grading/public/grading.css" />
+  <!-- This will dynamically change with buttons! -->
+  <link id="submission-style-css" rel="stylesheet" href="style.css" />
+
+  <!-- Grading script -->
+  <script src="grading/public/autograder.js"></script>
+  <title> CS 409 Midterm </title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row-1">
+      <div class="frame location-1">
+        <div class="frame-label">
+          Mona Lisa
+        </div>
+      </div>
+      <div class="frame location-2">
+        <div class="frame-label">
+          The Scream
+        </div>
+      </div>
+      <div class="frame location-3">
+        <div class="frame-label">
+          Pearl Earring
+        </div>
+      </div>
+    </div>
+    <div class="row-2">
+      <div class="frame location-4">
+        <div class="frame-label">
+          Mona Lisa
+        </div>
+      </div>
+      <div class="frame location-5">
+        <div class="frame-label">
+          The Scream
+        </div>
+      </div>
+      <div class="frame location-6">
+        <div class="frame-label">
+          Pearl Earring
+        </div>
+      </div>
+    </div>
+    <div class="row-3">
+      <div class="frame location-7">
+        <div class="frame-label">
+          Pearl Earring
+        </div>
+      </div>
+      <div class="frame location-8">
+        <div class="frame-label">
+          The Scream
+        </div>
+      </div>
+      <div class="frame location-9">
+        <div class="frame-label">
+          Mona Lisa
+        </div>
+      </div>
+    </div>
+
+    <div class="wall">
+      <div class="row">
+        <div class="mona-lisa"></div>
+        <div class="the-scream"></div>
+        <div class="girl-with-the-pearl-earring"></div>
+      </div>
+      <div class="row">
+        <div class="mona-lisa"></div>
+        <div class="the-scream"></div>
+        <div class="girl-with-the-pearl-earring"></div>
+      </div>
+      <div class="row">
+        <div class="mona-lisa"></div>
+        <div class="the-scream"></div>
+        <div class="girl-with-the-pearl-earring"></div>
+      </div>
+    </div>
+  </div>
+
+  <button id="grade-all-button" onclick="gradeAll()">Grade All Students</button>
+  <button id="export-all-button" onclick="download()">Export Grade Results JSON</button>
+
+  <div id="grading-tools">
+
+    <div id="grading-tools-autograder">
+      <form id="visual-grade-rubric">
+        <div id="grading-tools-form-header">
+          <div style="font-size: 20px; padding: 16px; text-align: center;">Visual Grade</div>
+          <button onclick="grade()">Grade Current Submission</button>
+        </div>
+        <fieldset>
+          <legend style="user-select: none;">Wall</legend>
+          <div>
+            <input type="checkbox" id="wall-style-check" name="wall-style-check" data-visual-points="1"
+              data-error-message="Wall size and location are incorrect" />
+            <label for="wall-style-check" style="user-select: none;">Wall size and location are correct (1pts)</label>
+          </div>
+          <div>
+            <input type="checkbox" id="wall-content-check" name="wall-content-check" data-visual-points="1.5"
+              data-error-message="Not all content is contained within the wall" />
+            <label for="wall-content-check" style="user-select: none;">All content is contained within the
+              wall (1.5pts)</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend style="user-select: none;">Top Row</legend>
+          <div>
+            <input type="checkbox" id="top-row-rows-check" name="top-row-rows-check" data-visual-points="1"
+              data-error-message="" data-error-message="Top row size and location are incorrect" />
+            <label for="top-row-rows-check" style="user-select: none;">Top row size and location are correct
+              (1pts)</label>
+          </div>
+          <div>
+            <input type="checkbox" id="top-row-images-check" name="top-row-images-check" data-visual-points="1.5"
+              data-error-message="One or more paintings in the top row is incorrect" />
+            <label for="top-row-images-check" style="user-select: none;">All paintings in the top row are correct
+              (1.5pts)</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend style="user-select: none;">Middle Row</legend>
+          <div>
+            <input type="checkbox" id="middle-row-rows-check" name="middle-row-rows-check" data-visual-points="1"
+              data-error-message="Middle row size and location are incorrect" />
+            <label for="middle-row-rows-check" style="user-select: none;">Middle row size and location are correct
+              (1pts)</label>
+          </div>
+          <div>
+            <input type="checkbox" id="middle-row-images-check" name="middle-row-images-check" data-visual-points="1.5"
+              data-error-message="One or more paintings in the middle row is incorrect" />
+            <label for="middle-row-images-check" style="user-select: none;">All paintings in the middle row are correct
+              (1.5pts)</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend style="user-select: none;">Bottom Row</legend>
+          <div>
+            <input type="checkbox" id="bottom-row-rows-check" name="bottom-row-rows-check" data-visual-points="1"
+              data-error-message="Bottom row size and location are incorrect" />
+            <label for="bottom-row-rows-check" style="user-select: none;">Bottom row size and location are correct
+              (1pts)</label>
+          </div>
+          <div>
+            <input type="checkbox" id="bottom-row-images-check" name="bottom-row-images-check" data-visual-points="1.5"
+              data-error-message="One or more paintings in the bottom row is incorrect" />
+            <label for="bottom-row-images-check" style="user-select: none;">All paintings in the bottom row are correct
+              (1.5pts)</label>
+          </div>
+        </fieldset>
+      </form>
+
+      <div style="font-size: 20px; padding: 8px; text-align: center;">
+        Feedback
+      </div>
+      <textarea id="autograde-feedback" readonly style="resize: none; height: 50vh;"></textarea>
+    </div>
+
+    <div id="grading-tools-filter">
+
+      <div id="grading-tools-header">
+        <h3>Active <span id="count"></span></h3>
+        <p id="active"></p>
+      </div>
+
+      <div id="grading-tools-submissions">
+        <h4>TOTAL <span id="total"></span></h4>
+        <!-- TODO: Copy paste buttons from buttons.html here -->
+        <button id="submission_button_1" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="1" data-canvas-full-name="Sloan Abrams"
+          data-canvas-id="123250" data-css-file-name="abrams_sloan123250_question_5177500_14851024_style.css">
+          Sloan Abrams
+        </button>
+        <button id="submission_button_2" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="2" data-canvas-full-name="Aditya Adusumalli"
+          data-canvas-id="113676" data-css-file-name="adusumalli_aditya113676_question_5177500_14845817_style.css">
+          Aditya Adusumalli
+        </button>
+        <button id="submission_button_3" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="3" data-canvas-full-name="Jai Agarwal"
+          data-canvas-id="360306" data-css-file-name="agarwal_jai360306_question_5177500_14845621_style.css">
+          Jai Agarwal
+        </button>
+        <button id="submission_button_4" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="4" data-canvas-full-name="Aadya Agrawal"
+          data-canvas-id="406572" data-css-file-name="agrawal_aadya406572_question_5177500_14805966_style.css">
+          Aadya Agrawal
+        </button>
+        <button id="submission_button_5" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="5" data-canvas-full-name="Ahmad Al-Juboory"
+          data-canvas-id="9416" data-css-file-name="al-juboory_ahmad9416_question_5177500_14809642_style.css">
+          Ahmad Al-Juboory
+        </button>
+        <button id="submission_button_6" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="6" data-canvas-full-name="Varnith Aleti"
+          data-canvas-id="323043" data-css-file-name="aleti_varnith323043_question_5177500_14837229_style.css">
+          Varnith Aleti
+        </button>
+        <button id="submission_button_7" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="7" data-canvas-full-name="Muhammad Alhadlaq"
+          data-canvas-id="67734" data-css-file-name="alhadlaq_muhammad67734_question_5177500_14848993_styles.css">
+          Muhammad Alhadlaq
+        </button>
+        <button id="submission_button_8" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="8"
+          data-canvas-full-name="Daniel Gonzalez Alonso" data-canvas-id="410769"
+          data-css-file-name="alonso_gonzalez_daniel410769_question_5177500_14766441_style.css">
+          Daniel Gonzalez Alonso
+        </button>
+        <button id="submission_button_9" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="9" data-canvas-full-name="Sam Alsayed"
+          data-canvas-id="324079" data-css-file-name="alsayed_sam324079_question_5177500_14838723_style.css">
+          Sam Alsayed
+        </button>
+        <button id="submission_button_10" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="10" data-canvas-full-name="Akil Anandan"
+          data-canvas-id="402823" data-css-file-name="anandan_akil402823_question_5177500_14801372_style.css">
+          Akil Anandan
+        </button>
+        <button id="submission_button_11" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="11" data-canvas-full-name="Simone Angelov"
+          data-canvas-id="122604" data-css-file-name="angelov_simone122604_question_5177500_14786358_styles.css">
+          Simone Angelov
+        </button>
+        <button id="submission_button_12" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="12" data-canvas-full-name="Uriel Arellano"
+          data-canvas-id="355762" data-css-file-name="arellano_uriel355762_question_5177500_14828532_styles.css">
+          Uriel Arellano
+        </button>
+        <button id="submission_button_13" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="13" data-canvas-full-name="Dhruv Auti"
+          data-canvas-id="32379" data-css-file-name="auti_dhruv32379_question_5177500_14799622_style.css">
+          Dhruv Auti
+        </button>
+        <button id="submission_button_14" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="14" data-canvas-full-name="Anirudh Bachiraju"
+          data-canvas-id="114103" data-css-file-name="bachiraju_anirudh114103_question_5177500_14850896_style.css">
+          Anirudh Bachiraju
+        </button>
+        <button id="submission_button_15" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="15" data-canvas-full-name="Mohit Badve"
+          data-canvas-id="404236" data-css-file-name="badve_mohit404236_question_5177500_14851504_style.css">
+          Mohit Badve
+        </button>
+        <button id="submission_button_16" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="16" data-canvas-full-name="Brandon Baez"
+          data-canvas-id="203249" data-css-file-name="baez_brandon203249_question_5177500_14810297_style.css">
+          Brandon Baez
+        </button>
+        <button id="submission_button_17" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="17"
+          data-canvas-full-name="Aayush Bandopadhyay" data-canvas-id="114117"
+          data-css-file-name="bandopadhyay_aayush114117_question_5177500_14843415_styles.css">
+          Aayush Bandopadhyay
+        </button>
+        <button id="submission_button_18" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="18" data-canvas-full-name="Rahul Bhatt"
+          data-canvas-id="121966" data-css-file-name="bhatt_rahul121966_question_5177500_14767002_style.css">
+          Rahul Bhatt
+        </button>
+        <button id="submission_button_19" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="19" data-canvas-full-name="Becky Blake"
+          data-canvas-id="122596" data-css-file-name="blake_becky122596_question_5177500_14806700_style.css">
+          Becky Blake
+        </button>
+        <button id="submission_button_20" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="20" data-canvas-full-name="Shreya Boyapati"
+          data-canvas-id="141033" data-css-file-name="boyapati_shreya141033_question_5177500_14835411_style.css">
+          Shreya Boyapati
+        </button>
+        <button id="submission_button_21" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="21" data-canvas-full-name="Seungwon Burm"
+          data-canvas-id="401734" data-css-file-name="burm_seungwon401734_question_5177500_14786770_style.css">
+          Seungwon Burm
+        </button>
+        <button id="submission_button_22" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="22" data-canvas-full-name="Ariel Byun"
+          data-canvas-id="16442" data-css-file-name="byun_ariel16442_question_5177500_14805654_style.css">
+          Ariel Byun
+        </button>
+        <button id="submission_button_23" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="23" data-canvas-full-name="Qinghong Cai"
+          data-canvas-id="402628" data-css-file-name="cai_qinghong402628_question_5177500_14768905_style.css">
+          Qinghong Cai
+        </button>
+        <button id="submission_button_24" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="24" data-canvas-full-name="Xiaoyang Cai"
+          data-canvas-id="107432" data-css-file-name="cai_xiaoyang107432_question_5177500_14813500_style.css">
+          Xiaoyang Cai
+        </button>
+        <button id="submission_button_25" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="25" data-canvas-full-name="Yue Cao"
+          data-canvas-id="326369" data-css-file-name="cao_yue326369_question_5177500_14835581_style.css">
+          Yue Cao
+        </button>
+        <button id="submission_button_26" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="26" data-canvas-full-name="Zhiteng Cao"
+          data-canvas-id="385740" data-css-file-name="cao_zhiteng385740_question_5177500_14850962_style.css">
+          Zhiteng Cao
+        </button>
+        <button id="submission_button_27" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="27" data-canvas-full-name="Sneha Chaliki"
+          data-canvas-id="329973" data-css-file-name="chaliki_sneha329973_question_5177500_14832400_style.css">
+          Sneha Chaliki
+        </button>
+        <button id="submission_button_28" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="28" data-canvas-full-name="Han-Chih Chang"
+          data-canvas-id="402838" data-css-file-name="chang_han-chih402838_question_5177500_14798561_style.css">
+          Han-Chih Chang
+        </button>
+        <button id="submission_button_29" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="29" data-canvas-full-name="Divyansh Chaudhary"
+          data-canvas-id="374675" data-css-file-name="chaudhary_divyansh374675_question_5177500_14800303_style.css">
+          Divyansh Chaudhary
+        </button>
+        <button id="submission_button_30" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="30" data-canvas-full-name="Congzheng Chen"
+          data-canvas-id="406291" data-css-file-name="chen_congzheng406291_question_5177500_14833608_style.css">
+          Congzheng Chen
+        </button>
+        <button id="submission_button_31" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="31" data-canvas-full-name="Hongxiao Chen"
+          data-canvas-id="43346" data-css-file-name="chen_hongxiao43346_question_5177500_14722223_style.css">
+          Hongxiao Chen
+        </button>
+        <button id="submission_button_32" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="32" data-canvas-full-name="Shenghao Cheng"
+          data-canvas-id="174555" data-css-file-name="cheng_shenghao174555_question_5177500_14755827_style.css">
+          Shenghao Cheng
+        </button>
+        <button id="submission_button_33" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="33" data-canvas-full-name="Shuo Cheng"
+          data-canvas-id="368899" data-css-file-name="cheng_shuo368899_question_5177500_14851139_style.css">
+          Shuo Cheng
+        </button>
+        <button id="submission_button_34" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="34" data-canvas-full-name="Yu-Ting Cheng"
+          data-canvas-id="406714" data-css-file-name="cheng_yu-ting406714_question_5177500_14798652_style.css">
+          Yu-Ting Cheng
+        </button>
+        <button id="submission_button_35" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="35" data-canvas-full-name="Alyson Chu"
+          data-canvas-id="15421" data-css-file-name="chu_alyson15421_question_5177500_14815412_style.css">
+          Alyson Chu
+        </button>
+        <button id="submission_button_36" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="36" data-canvas-full-name="Jarrett Cura"
+          data-canvas-id="326347" data-css-file-name="cura_jarrett326347_question_5177500_14798079_styles.css">
+          Jarrett Cura
+        </button>
+        <button id="submission_button_37" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="37" data-canvas-full-name="Sravya Davuluri"
+          data-canvas-id="327845" data-css-file-name="davuluri_sravya327845_question_5177500_14823798_style.css">
+          Sravya Davuluri
+        </button>
+        <button id="submission_button_38" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="38" data-canvas-full-name="Kian Guzman De"
+          data-canvas-id="325547" data-css-file-name="de_guzman_kian325547_question_5177500_14850499_style.css">
+          Kian Guzman De
+        </button>
+        <button id="submission_button_39" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="39" data-canvas-full-name="Chris Deng"
+          data-canvas-id="125041" data-css-file-name="deng_chris125041_question_5177500_14804796_style.css">
+          Chris Deng
+        </button>
+        <button id="submission_button_40" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="40" data-canvas-full-name="Neeya Devanagondi"
+          data-canvas-id="121345" data-css-file-name="devanagondi_neeya121345_question_5177500_14767065_style.css">
+          Neeya Devanagondi
+        </button>
+        <button id="submission_button_41" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="41"
+          data-canvas-full-name="Sunil Shantanu Dhamdhere" data-canvas-id="407279"
+          data-css-file-name="dhamdhere_shantanu_sunil407279_question_5177500_14850948_style.css">
+          Sunil Shantanu Dhamdhere
+        </button>
+        <button id="submission_button_42" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="42" data-canvas-full-name="Xiu Dong"
+          data-canvas-id="407815" data-css-file-name="dong_xiu407815_question_5177500_14824861_style.css">
+          Xiu Dong
+        </button>
+        <button id="submission_button_43" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="43" data-canvas-full-name="Amogh Donthi"
+          data-canvas-id="329773" data-css-file-name="donthi_amogh329773_question_5177500_14772862_style.css">
+          Amogh Donthi
+        </button>
+        <button id="submission_button_44" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="44" data-canvas-full-name="Aditya Dora"
+          data-canvas-id="364148" data-css-file-name="dora_aditya364148_question_5177500_14853291_style.css">
+          Aditya Dora
+        </button>
+        <button id="submission_button_45" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="45" data-canvas-full-name="Samuel Du"
+          data-canvas-id="99387" data-css-file-name="du_samuel99387_question_5177500_14846132_styles.css">
+          Samuel Du
+        </button>
+        <button id="submission_button_46" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="46" data-canvas-full-name="Teddy Dumitru"
+          data-canvas-id="403412" data-css-file-name="dumitru_teddy403412_question_5177500_14772921_styles.css">
+          Teddy Dumitru
+        </button>
+        <button id="submission_button_47" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="47" data-canvas-full-name="Elliot Dziemiela"
+          data-canvas-id="37225" data-css-file-name="dziemiela_elliot37225_question_5177500_14833338_style.css">
+          Elliot Dziemiela
+        </button>
+        <button id="submission_button_48" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="48" data-canvas-full-name="Reece Farrell"
+          data-canvas-id="122105" data-css-file-name="farrell_reece122105_question_5177500_14850728_question3.css">
+          Reece Farrell
+        </button>
+        <button id="submission_button_49" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="49" data-canvas-full-name="Kangyu Feng"
+          data-canvas-id="59838" data-css-file-name="feng_kangyu59838_question_5177500_14811753_style.css">
+          Kangyu Feng
+        </button>
+        <button id="submission_button_50" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="50" data-canvas-full-name="Lauren Fiene"
+          data-canvas-id="120135" data-css-file-name="fiene_lauren120135_question_5177500_14851542_style.css">
+          Lauren Fiene
+        </button>
+        <button id="submission_button_51" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="51" data-canvas-full-name="Collin Fox"
+          data-canvas-id="115419" data-css-file-name="fox_collin115419_question_5177500_14829927_style.css">
+          Collin Fox
+        </button>
+        <button id="submission_button_52" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="52" data-canvas-full-name="Aryan Gandhi"
+          data-canvas-id="14331" data-css-file-name="gandhi_aryan14331_question_5177500_14851124_style.css">
+          Aryan Gandhi
+        </button>
+        <button id="submission_button_53" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="53"
+          data-canvas-full-name="Anandan Krishna Ganesan" data-canvas-id="360865"
+          data-css-file-name="ganesan_krishna_anandan360865_question_5177500_14803532_style.css">
+          Anandan Krishna Ganesan
+        </button>
+        <button id="submission_button_54" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="54" data-canvas-full-name="Natalie Gavin"
+          data-canvas-id="328374" data-css-file-name="gavin_natalie328374_question_5177500_14838374_style.css">
+          Natalie Gavin
+        </button>
+        <button id="submission_button_55" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="55" data-canvas-full-name="Aryan Gupta"
+          data-canvas-id="405253" data-css-file-name="gupta_aryan405253_question_5177500_14826888_style.css">
+          Aryan Gupta
+        </button>
+        <button id="submission_button_56" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="56" data-canvas-full-name="Shusen Han"
+          data-canvas-id="376436" data-css-file-name="han_shusen376436_question_5177500_14776357_style.css">
+          Shusen Han
+        </button>
+        <button id="submission_button_57" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="57" data-canvas-full-name="Ruiying He"
+          data-canvas-id="413013" data-css-file-name="he_ruiying413013_question_5177500_14850779_style.css">
+          Ruiying He
+        </button>
+        <button id="submission_button_58" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="58" data-canvas-full-name="Chase Hinkle"
+          data-canvas-id="115832" data-css-file-name="hinkle_chase115832_question_5177500_14850762_styles.css">
+          Chase Hinkle
+        </button>
+        <button id="submission_button_59" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="59" data-canvas-full-name="Alan Hou"
+          data-canvas-id="45873" data-css-file-name="hou_alan45873_question_5177500_14837258_style.css">
+          Alan Hou
+        </button>
+        <button id="submission_button_60" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="60" data-canvas-full-name="Martin Hou"
+          data-canvas-id="360431" data-css-file-name="hou_martin360431_question_5177500_14751040_style.css">
+          Martin Hou
+        </button>
+        <button id="submission_button_61" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="61" data-canvas-full-name="Chia-Chun Hsiao"
+          data-canvas-id="400285" data-css-file-name="hsiao_chia-chun400285_question_5177500_14724846_style.css">
+          Chia-Chun Hsiao
+        </button>
+        <button id="submission_button_62" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="62" data-canvas-full-name="Runzhao Hu"
+          data-canvas-id="122736" data-css-file-name="hu_runzhao122736_question_5177500_14736725_style.css">
+          Runzhao Hu
+        </button>
+        <button id="submission_button_63" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="63" data-canvas-full-name="Shaobo Hu"
+          data-canvas-id="386177" data-css-file-name="hu_shaobo386177_question_5177500_14724724_style.css">
+          Shaobo Hu
+        </button>
+        <button id="submission_button_64" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="64" data-canvas-full-name="Tairan Hu"
+          data-canvas-id="413044" data-css-file-name="hu_tairan413044_question_5177500_14801717_style.css">
+          Tairan Hu
+        </button>
+        <button id="submission_button_65" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="65" data-canvas-full-name="Jade Huang"
+          data-canvas-id="362591" data-css-file-name="huang_jade362591_question_5177500_14799892_style.css">
+          Jade Huang
+        </button>
+        <button id="submission_button_66" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="66" data-canvas-full-name="Samuel Hurh"
+          data-canvas-id="94510" data-css-file-name="hurh_samuel94510_question_5177500_14851785_style.css">
+          Samuel Hurh
+        </button>
+        <button id="submission_button_67" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="67" data-canvas-full-name="Izhaan Hussain"
+          data-canvas-id="48774" data-css-file-name="hussain_izhaan48774_question_5177500_14846018_style.css">
+          Izhaan Hussain
+        </button>
+        <button id="submission_button_68" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="68" data-canvas-full-name="Helen Ilkiu"
+          data-canvas-id="46443" data-css-file-name="ilkiu_helen46443_question_5177500_14801964_style.css">
+          Helen Ilkiu
+        </button>
+        <button id="submission_button_69" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="69" data-canvas-full-name="Neha Jagadeesha"
+          data-canvas-id="323321" data-css-file-name="jagadeesha_neha323321_question_5177500_14852516_style.css">
+          Neha Jagadeesha
+        </button>
+        <button id="submission_button_70" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="70" data-canvas-full-name="Shrushti Jagtap"
+          data-canvas-id="360428" data-css-file-name="jagtap_shrushti360428_question_5177500_14809081_styles.css">
+          Shrushti Jagtap
+        </button>
+        <button id="submission_button_71" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="71" data-canvas-full-name="Alison Jia"
+          data-canvas-id="107151" data-css-file-name="jia_alison107151_question_5177500_14811679_style.css">
+          Alison Jia
+        </button>
+        <button id="submission_button_72" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="72" data-canvas-full-name="Dian Jin"
+          data-canvas-id="371287" data-css-file-name="jin_dian371287_question_5177500_14837943_style.css">
+          Dian Jin
+        </button>
+        <button id="submission_button_73" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="73" data-canvas-full-name="Bolden Jones"
+          data-canvas-id="331325" data-css-file-name="jones_bolden331325_question_5177500_14845607_styles.css">
+          Bolden Jones
+        </button>
+        <button id="submission_button_74" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="74" data-canvas-full-name="Shalin Joshi"
+          data-canvas-id="323190" data-css-file-name="joshi_shalin323190_question_5177500_14833218_style.css">
+          Shalin Joshi
+        </button>
+        <button id="submission_button_75" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="75"
+          data-canvas-full-name="Rudy Juarez-Ovallos" data-canvas-id="122320"
+          data-css-file-name="juarez-ovallos_rudy122320_question_5177500_14845511_style.css">
+          Rudy Juarez-Ovallos
+        </button>
+        <button id="submission_button_76" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="76" data-canvas-full-name="Venkatesh Kamat"
+          data-canvas-id="401574" data-css-file-name="kamat_venkatesh401574_question_5177500_14836171_style.css">
+          Venkatesh Kamat
+        </button>
+        <button id="submission_button_77" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="77"
+          data-canvas-full-name="Monish Karakampalle" data-canvas-id="325796"
+          data-css-file-name="karakampalle_monish325796_question_5177500_14845949_style.css">
+          Monish Karakampalle
+        </button>
+        <button id="submission_button_78" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="78" data-canvas-full-name="Rahul Kasibhatla"
+          data-canvas-id="121976" data-css-file-name="kasibhatla_rahul121976_question_5177500_14768792_style.css">
+          Rahul Kasibhatla
+        </button>
+        <button id="submission_button_79" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="79" data-canvas-full-name="Shivam Kaushik"
+          data-canvas-id="123030" data-css-file-name="kaushik_shivam123030_question_5177500_14786276_style.css">
+          Shivam Kaushik
+        </button>
+        <button id="submission_button_80" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="80" data-canvas-full-name="Emily Kaven"
+          data-canvas-id="119199" data-css-file-name="kaven_emily119199_question_5177500_14804832_style.css">
+          Emily Kaven
+        </button>
+        <button id="submission_button_81" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="81" data-canvas-full-name="Ilana Kaven"
+          data-canvas-id="118225" data-css-file-name="kaven_ilana118225_question_5177500_14805301_style.css">
+          Ilana Kaven
+        </button>
+        <button id="submission_button_82" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="82" data-canvas-full-name="Tabeeb Khandaker"
+          data-canvas-id="100461" data-css-file-name="khandaker_tabeeb100461_question_5177500_14827568_styles.css">
+          Tabeeb Khandaker
+        </button>
+        <button id="submission_button_83" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="83" data-canvas-full-name="Lin Kim"
+          data-canvas-id="369523" data-css-file-name="kim_lin369523_question_5177500_14852667_style.css">
+          Lin Kim
+        </button>
+        <button id="submission_button_84" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="84" data-canvas-full-name="Ameya Kolhatkar"
+          data-canvas-id="403330" data-css-file-name="kolhatkar_ameya403330_question_5177500_14808015_style.css">
+          Ameya Kolhatkar
+        </button>
+        <button id="submission_button_85" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="85" data-canvas-full-name="Nobt Komolkhetruck"
+          data-canvas-id="102076" data-css-file-name="komolkhetruck_nobt102076_question_5177500_14850297_style.css">
+          Nobt Komolkhetruck
+        </button>
+        <button id="submission_button_86" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="86" data-canvas-full-name="Mike Koziol"
+          data-canvas-id="320890" data-css-file-name="koziol_mike320890_question_5177500_14729735_style.css">
+          Mike Koziol
+        </button>
+        <button id="submission_button_87" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="87" data-canvas-full-name="Lalit Kudikala"
+          data-canvas-id="331471" data-css-file-name="kudikala_lalit331471_question_5177500_14819853_style.css">
+          Lalit Kudikala
+        </button>
+        <button id="submission_button_88" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="88" data-canvas-full-name="Swati Kulkarni"
+          data-canvas-id="385664" data-css-file-name="kulkarni_swati385664_question_5177500_14842974_style.css">
+          Swati Kulkarni
+        </button>
+        <button id="submission_button_89" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="89" data-canvas-full-name="Monica Kumar"
+          data-canvas-id="320509" data-css-file-name="kumar_monica320509_question_5177500_14835883_style.css">
+          Monica Kumar
+        </button>
+        <button id="submission_button_90" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="90"
+          data-canvas-full-name="Anirudha Kyathsandra" data-canvas-id="402750"
+          data-css-file-name="kyathsandra_anirudha402750_question_5177500_14837898_styles.css">
+          Anirudha Kyathsandra
+        </button>
+        <button id="submission_button_91" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="91" data-canvas-full-name="Yuhui Lai"
+          data-canvas-id="272986" data-css-file-name="lai_yuhui272986_question_5177500_14852232_style.css">
+          Yuhui Lai
+        </button>
+        <button id="submission_button_92" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="92" data-canvas-full-name="Siddharth Lal"
+          data-canvas-id="364240" data-css-file-name="lal_siddharth364240_question_5177500_14833877_style.css">
+          Siddharth Lal
+        </button>
+        <button id="submission_button_93" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="93" data-canvas-full-name="Victor Larios"
+          data-canvas-id="124111" data-css-file-name="larios_victor124111_question_5177500_14860323_style.css">
+          Victor Larios
+        </button>
+        <button id="submission_button_94" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="94" data-canvas-full-name="Andrew Lester"
+          data-canvas-id="114200" data-css-file-name="lester_andrew114200_question_5177500_14850551_style.css">
+          Andrew Lester
+        </button>
+        <button id="submission_button_95" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="95" data-canvas-full-name="Alice Li"
+          data-canvas-id="327817" data-css-file-name="li_alice327817_question_5177500_14824673_style.css">
+          Alice Li
+        </button>
+        <button id="submission_button_96" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="96" data-canvas-full-name="Aoyang Li"
+          data-canvas-id="114407" data-css-file-name="li_aoyang114407_question_5177500_14803595_style.css">
+          Aoyang Li
+        </button>
+        <button id="submission_button_97" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="97" data-canvas-full-name="Bo Li"
+          data-canvas-id="178364" data-css-file-name="li_bo178364_question_5177500_14796603_style.css">
+          Bo Li
+        </button>
+        <button id="submission_button_98" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="98" data-canvas-full-name="Daniel Li"
+          data-canvas-id="116207" data-css-file-name="li_daniel116207_question_5177500_14789626_style.css">
+          Daniel Li
+        </button>
+        <button id="submission_button_99" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="99" data-canvas-full-name="Heyang Li"
+          data-canvas-id="375095" data-css-file-name="li_heyang375095_question_5177500_14846268_style.css">
+          Heyang Li
+        </button>
+        <button id="submission_button_100" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="100" data-canvas-full-name="Qiuchi Li"
+          data-canvas-id="122118" data-css-file-name="li_qiuchi122118_question_5177500_14790642_style.css">
+          Qiuchi Li
+        </button>
+        <button id="submission_button_101" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="101" data-canvas-full-name="Shilong Li"
+          data-canvas-id="406191" data-css-file-name="li_shilong406191_question_5177500_14845766_style.css">
+          Shilong Li
+        </button>
+        <button id="submission_button_102" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="102" data-canvas-full-name="Qiannian Liang"
+          data-canvas-id="84902" data-css-file-name="liang_qiannian84902_question_5177500_14805835_style.css">
+          Qiannian Liang
+        </button>
+        <button id="submission_button_103" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="103" data-canvas-full-name="Tianyang Liao"
+          data-canvas-id="363716" data-css-file-name="liao_tianyang363716_question_5177500_14828159_style.css">
+          Tianyang Liao
+        </button>
+        <button id="submission_button_104" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="104" data-canvas-full-name="Kenny Lin"
+          data-canvas-id="119338" data-css-file-name="lin_kenny119338_question_5177500_14796514_styles.css">
+          Kenny Lin
+        </button>
+        <button id="submission_button_105" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="105" data-canvas-full-name="Zihao Lin"
+          data-canvas-id="112830" data-css-file-name="lin_zihao112830_question_5177500_14800241_style.css">
+          Zihao Lin
+        </button>
+        <button id="submission_button_106" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="106" data-canvas-full-name="Shuning Liu"
+          data-canvas-id="402358" data-css-file-name="liu_shuning402358_question_5177500_14784781_style.css">
+          Shuning Liu
+        </button>
+        <button id="submission_button_107" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="107" data-canvas-full-name="Xinhao Liu"
+          data-canvas-id="107917" data-css-file-name="liu_xinhao107917_question_5177500_14802604_style.css">
+          Xinhao Liu
+        </button>
+        <button id="submission_button_108" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="108" data-canvas-full-name="Yichong Liu"
+          data-canvas-id="403434" data-css-file-name="liu_yichong403434_question_5177500_14768110_style.css">
+          Yichong Liu
+        </button>
+        <button id="submission_button_109" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="109" data-canvas-full-name="Chang-Yuan Lo"
+          data-canvas-id="403259" data-css-file-name="lo_chang-yuan403259_question_5177500_14798354_style.css">
+          Chang-Yuan Lo
+        </button>
+        <button id="submission_button_110" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="110" data-canvas-full-name="Tim Long"
+          data-canvas-id="103631" data-css-file-name="long_tim103631_question_5177500_14845799_style.css">
+          Tim Long
+        </button>
+        <button id="submission_button_111" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="111" data-canvas-full-name="Peter Lu"
+          data-canvas-id="325629" data-css-file-name="lu_peter325629_question_5177500_14834645_style.css">
+          Peter Lu
+        </button>
+        <button id="submission_button_112" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="112" data-canvas-full-name="Wenhao Lu"
+          data-canvas-id="330299" data-css-file-name="lu_wenhao330299_question_5177500_14852536_style.css">
+          Wenhao Lu
+        </button>
+        <button id="submission_button_113" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="113" data-canvas-full-name="Hongyi Luo"
+          data-canvas-id="117729" data-css-file-name="luo_hongyi117729_question_5177500_14790980_style.css">
+          Hongyi Luo
+        </button>
+        <button id="submission_button_114" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="114" data-canvas-full-name="Runzhi Ma"
+          data-canvas-id="365924" data-css-file-name="ma_runzhi365924_question_5177500_14805722_style.css">
+          Runzhi Ma
+        </button>
+        <button id="submission_button_115" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="115" data-canvas-full-name="Vincent Ma"
+          data-canvas-id="125250" data-css-file-name="ma_vincent125250_question_5177500_14788771_style.css">
+          Vincent Ma
+        </button>
+        <button id="submission_button_116" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="116" data-canvas-full-name="Rifat Mahfuz"
+          data-canvas-id="374616" data-css-file-name="mahfuz_rifat374616_question_5177500_14849342_style.css">
+          Rifat Mahfuz
+        </button>
+        <button id="submission_button_117" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="117" data-canvas-full-name="Aryan Malhotra"
+          data-canvas-id="114768" data-css-file-name="malhotra_aryan114768_question_5177500_14784535_style.css">
+          Aryan Malhotra
+        </button>
+        <button id="submission_button_118" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="118" data-canvas-full-name="Zixin Mao"
+          data-canvas-id="125128" data-css-file-name="mao_zixin125128_question_5177500_14808582_style.css">
+          Zixin Mao
+        </button>
+        <button id="submission_button_119" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="119" data-canvas-full-name="Marvin Massey"
+          data-canvas-id="121113" data-css-file-name="massey_marvin121113_question_5177500_14844992_style.css">
+          Marvin Massey
+        </button>
+        <button id="submission_button_120" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="120" data-canvas-full-name="Wyatt Mayor"
+          data-canvas-id="360064" data-css-file-name="mayor_wyatt360064_question_5177500_14834797_style.css">
+          Wyatt Mayor
+        </button>
+        <button id="submission_button_121" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="121" data-canvas-full-name="Brian Mcmanus"
+          data-canvas-id="21720" data-css-file-name="mcmanus_brian21720_question_5177500_14826415_style.css">
+          Brian Mcmanus
+        </button>
+        <button id="submission_button_122" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="122" data-canvas-full-name="Sijie Mei"
+          data-canvas-id="407291" data-css-file-name="mei_sijie407291_question_5177500_14768808_style.css">
+          Sijie Mei
+        </button>
+        <button id="submission_button_123" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="123" data-canvas-full-name="Nick Messina"
+          data-canvas-id="71370" data-css-file-name="messina_nick71370_question_5177500_14785104_style.css">
+          Nick Messina
+        </button>
+        <button id="submission_button_124" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="124" data-canvas-full-name="Victor Misyutin"
+          data-canvas-id="402243" data-css-file-name="misyutin_victor402243_question_5177500_14828134_style.css">
+          Victor Misyutin
+        </button>
+        <button id="submission_button_125" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="125" data-canvas-full-name="Anushri Mittal"
+          data-canvas-id="114328" data-css-file-name="mittal_anushri114328_question_5177500_14851506_style.css">
+          Anushri Mittal
+        </button>
+        <button id="submission_button_126" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="126" data-canvas-full-name="Joe Morrissey"
+          data-canvas-id="118963" data-css-file-name="morrissey_joe118963_question_5177500_14786345_style.css">
+          Joe Morrissey
+        </button>
+        <button id="submission_button_127" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="127" data-canvas-full-name="Satvik Movva"
+          data-canvas-id="325887" data-css-file-name="movva_satvik325887_question_5177500_14834140_style.css">
+          Satvik Movva
+        </button>
+        <button id="submission_button_128" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="128" data-canvas-full-name="Stephen Moy"
+          data-canvas-id="121175" data-css-file-name="moy_stephen121175_question_5177500_14804111_style.css">
+          Stephen Moy
+        </button>
+        <button id="submission_button_129" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="129" data-canvas-full-name="Rucha Nandha"
+          data-canvas-id="122288" data-css-file-name="nandha_rucha122288_question_5177500_14834080_style.css">
+          Rucha Nandha
+        </button>
+        <button id="submission_button_130" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="130"
+          data-canvas-full-name="Rajkumar Rutuja Narwade" data-canvas-id="386044"
+          data-css-file-name="narwade_rutuja_rajkumar386044_question_5177500_14809048_style.css">
+          Rajkumar Rutuja Narwade
+        </button>
+        <button id="submission_button_131" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="131" data-canvas-full-name="Abigail Obradovic"
+          data-canvas-id="331983" data-css-file-name="obradovic_abigail331983_question_5177500_14852753_style.css">
+          Abigail Obradovic
+        </button>
+        <button id="submission_button_132" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="132" data-canvas-full-name="Nathan Omerza"
+          data-canvas-id="81223" data-css-file-name="omerza_nathan81223_question_5177500_14763369_style.css">
+          Nathan Omerza
+        </button>
+        <button id="submission_button_133" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="133" data-canvas-full-name="Augustine Park"
+          data-canvas-id="113841" data-css-file-name="park_augustine113841_question_5177500_14821861_style.css">
+          Augustine Park
+        </button>
+        <button id="submission_button_134" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="134" data-canvas-full-name="Ryan Park"
+          data-canvas-id="331613" data-css-file-name="park_ryan331613_question_5177500_14862765_style.css">
+          Ryan Park
+        </button>
+        <button id="submission_button_135" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="135" data-canvas-full-name="Dimple Patel"
+          data-canvas-id="33184" data-css-file-name="patel_dimple33184_question_5177500_14853098_style.css">
+          Dimple Patel
+        </button>
+        <button id="submission_button_136" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="136" data-canvas-full-name="Jasmine Patel"
+          data-canvas-id="397940" data-css-file-name="patel_jasmine397940_question_5177500_14813079_style.css">
+          Jasmine Patel
+        </button>
+        <button id="submission_button_137" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="137" data-canvas-full-name="Khushi Patel"
+          data-canvas-id="331033" data-css-file-name="patel_khushi331033_question_5177500_14850525_style.css">
+          Khushi Patel
+        </button>
+        <button id="submission_button_138" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="138" data-canvas-full-name="Shreya Patel"
+          data-canvas-id="93908" data-css-file-name="patel_shreya93908_question_5177500_14832861_style.css">
+          Shreya Patel
+        </button>
+        <button id="submission_button_139" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="139" data-canvas-full-name="Philip Paulson"
+          data-canvas-id="121780" data-css-file-name="paulson_philip121780_question_5177500_14737052_style.css">
+          Philip Paulson
+        </button>
+        <button id="submission_button_140" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="140" data-canvas-full-name="Ayush Prasad"
+          data-canvas-id="402871" data-css-file-name="prasad_ayush402871_question_5177500_14825662_style.css">
+          Ayush Prasad
+        </button>
+        <button id="submission_button_141" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="141" data-canvas-full-name="Haiyang Qin"
+          data-canvas-id="117835" data-css-file-name="qin_haiyang117835_question_5177500_14839258_style.css">
+          Haiyang Qin
+        </button>
+        <button id="submission_button_142" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="142" data-canvas-full-name="Xinyao Qiu"
+          data-canvas-id="403874" data-css-file-name="qiu_xinyao403874_question_5177500_14802644_style.css">
+          Xinyao Qiu
+        </button>
+        <button id="submission_button_143" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="143"
+          data-canvas-full-name="Siddharth Rajagopalan" data-canvas-id="96196"
+          data-css-file-name="rajagopalan_siddharth96196_question_5177500_14799376_style.css">
+          Siddharth Rajagopalan
+        </button>
+        <button id="submission_button_144" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="144"
+          data-canvas-full-name="Nisha Ramasubramanian" data-canvas-id="366441"
+          data-css-file-name="ramasubramanian_nisha366441_question_5177500_14729597_style.css">
+          Nisha Ramasubramanian
+        </button>
+        <button id="submission_button_145" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="145" data-canvas-full-name="Srinath Ravikumar"
+          data-canvas-id="402834" data-css-file-name="ravikumar_srinath402834_question_5177500_14825639_style.css">
+          Srinath Ravikumar
+        </button>
+        <button id="submission_button_146" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="146" data-canvas-full-name="Jamie Rollison"
+          data-canvas-id="118418" data-css-file-name="rollison_jamie118418_question_5177500_14801527_style.css">
+          Jamie Rollison
+        </button>
+        <button id="submission_button_147" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="147"
+          data-canvas-full-name="Samuel Tejero Rollon" data-canvas-id="411466"
+          data-css-file-name="rollon_tejero_samuel411466_question_5177500_14766968_style.css">
+          Samuel Tejero Rollon
+        </button>
+        <button id="submission_button_148" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="148" data-canvas-full-name="Aditi Roy"
+          data-canvas-id="113657" data-css-file-name="roy_aditi113657_question_5177500_14785381_style.css">
+          Aditi Roy
+        </button>
+        <button id="submission_button_149" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="149" data-canvas-full-name="Adrian Russo"
+          data-canvas-id="14102" data-css-file-name="russo_adrian14102_question_5177500_14743622_style.css">
+          Adrian Russo
+        </button>
+        <button id="submission_button_150" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="150" data-canvas-full-name="Juan Caban Sanz"
+          data-canvas-id="55237" data-css-file-name="sanz_caban_juan55237_question_5177500_14842225_style.css">
+          Juan Caban Sanz
+        </button>
+        <button id="submission_button_151" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="151" data-canvas-full-name="Apurv Sawant"
+          data-canvas-id="405309" data-css-file-name="sawant_apurv405309_question_5177500_14851368_style.css">
+          Apurv Sawant
+        </button>
+        <button id="submission_button_152" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="152" data-canvas-full-name="Anton Sebastian"
+          data-canvas-id="5423" data-css-file-name="sebastian_anton5423_question_5177500_14865486_style.css">
+          Anton Sebastian
+        </button>
+        <button id="submission_button_153" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="153"
+          data-canvas-full-name="Devashree Selvakumar" data-canvas-id="403367"
+          data-css-file-name="selvakumar_devashree403367_question_5177500_14810283_style.css">
+          Devashree Selvakumar
+        </button>
+        <button id="submission_button_154" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="154" data-canvas-full-name="Karan Shah"
+          data-canvas-id="330431" data-css-file-name="shah_karan330431_question_5177500_14853053_styles.css">
+          Karan Shah
+        </button>
+        <button id="submission_button_155" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="155" data-canvas-full-name="Anindya Sharma"
+          data-canvas-id="331524" data-css-file-name="sharma_anindya331524_question_5177500_14795321_style.css">
+          Anindya Sharma
+        </button>
+        <button id="submission_button_156" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="156" data-canvas-full-name="Zixuan Shen"
+          data-canvas-id="407555" data-css-file-name="shen_zixuan407555_question_5177500_14798526_style.css">
+          Zixuan Shen
+        </button>
+        <button id="submission_button_157" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="157" data-canvas-full-name="Anushant Singh"
+          data-canvas-id="123205" data-css-file-name="singh_anushant123205_question_5177500_14846552_style.css">
+          Anushant Singh
+        </button>
+        <button id="submission_button_158" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="158" data-canvas-full-name="Manav Singhai"
+          data-canvas-id="388036" data-css-file-name="singhai_manav388036_question_5177500_14852952_styles.css">
+          Manav Singhai
+        </button>
+        <button id="submission_button_159" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="159" data-canvas-full-name="Youngjin Song"
+          data-canvas-id="335515" data-css-file-name="song_youngjin335515_question_5177500_14747649_style.css">
+          Youngjin Song
+        </button>
+        <button id="submission_button_160" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="160" data-canvas-full-name="Smriti Srinivasan"
+          data-canvas-id="324012" data-css-file-name="srinivasan_smriti324012_question_5177500_14786338_style.css">
+          Smriti Srinivasan
+        </button>
+        <button id="submission_button_161" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="161"
+          data-canvas-full-name="Ali Mohammad Sultani" data-canvas-id="388268"
+          data-css-file-name="sultani_mohammad_ali388268_question_5177500_14845666_style.css">
+          Ali Mohammad Sultani
+        </button>
+        <button id="submission_button_162" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="162" data-canvas-full-name="Andrew Swindells"
+          data-canvas-id="114352" data-css-file-name="swindells_andrew114352_question_5177500_14827147_style.css">
+          Andrew Swindells
+        </button>
+        <button id="submission_button_163" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="163" data-canvas-full-name="Kendrit Tahiraj"
+          data-canvas-id="319348" data-css-file-name="tahiraj_kendrit319348_question_5177500_14840450_style.css">
+          Kendrit Tahiraj
+        </button>
+        <button id="submission_button_164" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="164" data-canvas-full-name="Emily Tang"
+          data-canvas-id="370038" data-css-file-name="tang_emily370038_question_5177500_14784429_style.css">
+          Emily Tang
+        </button>
+        <button id="submission_button_165" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="165" data-canvas-full-name="Nehal Tangudu"
+          data-canvas-id="121636" data-css-file-name="tangudu_nehal121636_question_5177500_14808940_style.css">
+          Nehal Tangudu
+        </button>
+        <button id="submission_button_166" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="166" data-canvas-full-name="Zhuoang Tao"
+          data-canvas-id="125282" data-css-file-name="tao_zhuoang125282_question_5177500_14803916_style.css">
+          Zhuoang Tao
+        </button>
+        <button id="submission_button_167" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="167" data-canvas-full-name="Ariana Tarafdar"
+          data-canvas-id="114395" data-css-file-name="tarafdar_ariana114395_question_5177500_14849486_style.css">
+          Ariana Tarafdar
+        </button>
+        <button id="submission_button_168" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="168" data-canvas-full-name="Saumil Thakore"
+          data-canvas-id="90206" data-css-file-name="thakore_saumil90206_question_5177500_14746449_style.css">
+          Saumil Thakore
+        </button>
+        <button id="submission_button_169" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="169"
+          data-canvas-full-name="Javier Serrataco Tort" data-canvas-id="118341"
+          data-css-file-name="tort_serrataco_javier118341_question_5177500_14851633_style.css">
+          Javier Serrataco Tort
+        </button>
+        <button id="submission_button_170" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="170" data-canvas-full-name="Andrew Tran"
+          data-canvas-id="114470" data-css-file-name="tran_andrew114470_question_5177500_14852811_style.css">
+          Andrew Tran
+        </button>
+        <button id="submission_button_171" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="171" data-canvas-full-name="Keshav Trikha"
+          data-canvas-id="119760" data-css-file-name="trikha_keshav119760_question_5177500_14823368_styles.css">
+          Keshav Trikha
+        </button>
+        <button id="submission_button_172" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="172" data-canvas-full-name="Hsu-Huai Tsai"
+          data-canvas-id="404262" data-css-file-name="tsai_hsu-huai404262_question_5177500_14798030_style.css">
+          Hsu-Huai Tsai
+        </button>
+        <button id="submission_button_173" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="173" data-canvas-full-name="Matthew Tzeng"
+          data-canvas-id="76829" data-css-file-name="tzeng_matthew76829_question_5177500_14832359_style.css">
+          Matthew Tzeng
+        </button>
+        <button id="submission_button_174" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="174" data-canvas-full-name="Rohit Uruma"
+          data-canvas-id="122808" data-css-file-name="uruma_rohit122808_question_5177500_14845707_styles.css">
+          Rohit Uruma
+        </button>
+        <button id="submission_button_175" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="175" data-canvas-full-name="Yug Vajani"
+          data-canvas-id="402811" data-css-file-name="vajani_yug402811_question_5177500_14831426_style.css">
+          Yug Vajani
+        </button>
+        <button id="submission_button_176" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="176" data-canvas-full-name="Srinand Vasudevan"
+          data-canvas-id="330274" data-css-file-name="vasudevan_srinand330274_question_5177500_14797979_style.css">
+          Srinand Vasudevan
+        </button>
+        <button id="submission_button_177" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="177" data-canvas-full-name="Ujjawal Urja Vats"
+          data-canvas-id="403054" data-css-file-name="vats_urja_ujjawal403054_question_5177500_14804650_style.css">
+          Ujjawal Urja Vats
+        </button>
+        <button id="submission_button_178" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="178"
+          data-canvas-full-name="Rahul Huleppanour Veerappa" data-canvas-id="360437"
+          data-css-file-name="veerappa_huleppanour_rahul360437_question_5177500_14840456_style.css">
+          Rahul Huleppanour Veerappa
+        </button>
+        <button id="submission_button_179" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="179" data-canvas-full-name="Prajwal Wable"
+          data-canvas-id="407565" data-css-file-name="wable_prajwal407565_question_5177500_14838309_style.css">
+          Prajwal Wable
+        </button>
+        <button id="submission_button_180" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="180" data-canvas-full-name="Renee Wah"
+          data-canvas-id="413960" data-css-file-name="wah_renee413960_question_5177500_14849003_question2.css">
+          Renee Wah
+        </button>
+        <button id="submission_button_181" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="181" data-canvas-full-name="Jonathan Wang"
+          data-canvas-id="107944" data-css-file-name="wang_jonathan107944_question_5177500_14765446_style.css">
+          Jonathan Wang
+        </button>
+        <button id="submission_button_182" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="182" data-canvas-full-name="Mingqi Wang"
+          data-canvas-id="74491" data-css-file-name="wang_mingqi74491_question_5177500_14846030_style.css">
+          Mingqi Wang
+        </button>
+        <button id="submission_button_183" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="183" data-canvas-full-name="Nicholas Wang"
+          data-canvas-id="26152" data-css-file-name="wang_nicholas26152_question_5177500_14851041_style.css">
+          Nicholas Wang
+        </button>
+        <button id="submission_button_184" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="184" data-canvas-full-name="Qichen Wang"
+          data-canvas-id="375234" data-css-file-name="wang_qichen375234_question_5177500_14796649_style.css">
+          Qichen Wang
+        </button>
+        <button id="submission_button_185" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="185" data-canvas-full-name="Steven Wang"
+          data-canvas-id="122742" data-css-file-name="wang_steven122742_question_5177500_14786430_styles.css">
+          Steven Wang
+        </button>
+        <button id="submission_button_186" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="186" data-canvas-full-name="Zirui Wang"
+          data-canvas-id="112974" data-css-file-name="wang_zirui112974_question_5177500_14775107_style.css">
+          Zirui Wang
+        </button>
+        <button id="submission_button_187" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="187" data-canvas-full-name="Ziyin Wang"
+          data-canvas-id="379907" data-css-file-name="wang_ziyin379907_question_5177500_14767354_style.css">
+          Ziyin Wang
+        </button>
+        <button id="submission_button_188" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="188" data-canvas-full-name="Chris Ward"
+          data-canvas-id="339028" data-css-file-name="ward_chris339028_question_5177500_14860423_sytle.css">
+          Chris Ward
+        </button>
+        <button id="submission_button_189" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="189" data-canvas-full-name="Jiahe Wei"
+          data-canvas-id="366213" data-css-file-name="wei_jiahe366213_question_5177500_14831280_style.css">
+          Jiahe Wei
+        </button>
+        <button id="submission_button_190" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="190" data-canvas-full-name="Megan Wood"
+          data-canvas-id="322940" data-css-file-name="wood_megan322940_question_5177500_14851593_style.css">
+          Megan Wood
+        </button>
+        <button id="submission_button_191" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="191" data-canvas-full-name="Andy Wu"
+          data-canvas-id="368393" data-css-file-name="wu_andy368393_question_5177500_14796635_style.css">
+          Andy Wu
+        </button>
+        <button id="submission_button_192" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="192" data-canvas-full-name="Bohan Wu"
+          data-canvas-id="366892" data-css-file-name="wu_bohan366892_question_5177500_14796914_style.css">
+          Bohan Wu
+        </button>
+        <button id="submission_button_193" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="193" data-canvas-full-name="Theda Wu"
+          data-canvas-id="207187" data-css-file-name="wu_theda207187_question_5177500_14839228_style.css">
+          Theda Wu
+        </button>
+        <button id="submission_button_194" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="194" data-canvas-full-name="Shuyu Xie"
+          data-canvas-id="94678" data-css-file-name="xie_shuyu94678_question_5177500_14839938_style.css">
+          Shuyu Xie
+        </button>
+        <button id="submission_button_195" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="195" data-canvas-full-name="Fangyang Xu"
+          data-canvas-id="408491" data-css-file-name="xu_fangyang408491_question_5177500_14834287_style.css">
+          Fangyang Xu
+        </button>
+        <button id="submission_button_196" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="196" data-canvas-full-name="Patrick Xu"
+          data-canvas-id="110694" data-css-file-name="xu_patrick110694_question_5177500_14849534_style.css">
+          Patrick Xu
+        </button>
+        <button id="submission_button_197" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="197" data-canvas-full-name="Tristian Xu"
+          data-canvas-id="125261" data-css-file-name="xu_tristian125261_question_5177500_14850669_style.css">
+          Tristian Xu
+        </button>
+        <button id="submission_button_198" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="198" data-canvas-full-name="Haotian Xue"
+          data-canvas-id="415220" data-css-file-name="xue_haotian415220_question_5177500_14768837_style.css">
+          Haotian Xue
+        </button>
+        <button id="submission_button_199" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="199" data-canvas-full-name="Xinyi Ye"
+          data-canvas-id="124666" data-css-file-name="ye_xinyi124666_question_5177500_14850550_style.css">
+          Xinyi Ye
+        </button>
+        <button id="submission_button_200" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="200" data-canvas-full-name="Xinyun Ye"
+          data-canvas-id="374982" data-css-file-name="ye_xinyun374982_question_5177500_14796950_style.css">
+          Xinyun Ye
+        </button>
+        <button id="submission_button_201" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="201" data-canvas-full-name="Li Yi"
+          data-canvas-id="367279" data-css-file-name="yi_li367279_question_5177500_14805987_style.css">
+          Li Yi
+        </button>
+        <button id="submission_button_202" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="202" data-canvas-full-name="Jiangwei Yu"
+          data-canvas-id="361319" data-css-file-name="yu_jiangwei361319_question_5177500_14783991_styles.css">
+          Jiangwei Yu
+        </button>
+        <button id="submission_button_203" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="203" data-canvas-full-name="Leo Yu"
+          data-canvas-id="88987" data-css-file-name="yu_leo88987_question_5177500_14811420_styles.css">
+          Leo Yu
+        </button>
+        <button id="submission_button_204" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="204" data-canvas-full-name="Marvin Yu"
+          data-canvas-id="70566" data-css-file-name="yu_marvin70566_question_5177500_14824830_style.css">
+          Marvin Yu
+        </button>
+        <button id="submission_button_205" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="205" data-canvas-full-name="Tiffany Yu"
+          data-canvas-id="124361" data-css-file-name="yu_tiffany124361_question_5177500_14808916_style.css">
+          Tiffany Yu
+        </button>
+        <button id="submission_button_206" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="206" data-canvas-full-name="Xucheng Yu"
+          data-canvas-id="410412" data-css-file-name="yu_xucheng410412_question_5177500_14837328_style.css">
+          Xucheng Yu
+        </button>
+        <button id="submission_button_207" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="207" data-canvas-full-name="Jinsong Yuan"
+          data-canvas-id="52762" data-css-file-name="yuan_jinsong52762_question_5177500_14768890_style.css">
+          Jinsong Yuan
+        </button>
+        <button id="submission_button_208" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="208" data-canvas-full-name="Ruiyu Yuan"
+          data-canvas-id="403453" data-css-file-name="yuan_ruiyu403453_question_5177500_14797985_style.css">
+          Ruiyu Yuan
+        </button>
+        <button id="submission_button_209" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="209" data-canvas-full-name="Tianyun Yuan"
+          data-canvas-id="403783" data-css-file-name="yuan_tianyun403783_question_5177500_14850912_style.css">
+          Tianyun Yuan
+        </button>
+        <button id="submission_button_210" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="210" data-canvas-full-name="Richie Zachariah"
+          data-canvas-id="326394" data-css-file-name="zachariah_richie326394_question_5177500_14850261_style.css">
+          Richie Zachariah
+        </button>
+        <button id="submission_button_211" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="211" data-canvas-full-name="Zhuofan Zeng"
+          data-canvas-id="377621" data-css-file-name="zeng_zhuofan377621_question_5177500_14840157_style.css">
+          Zhuofan Zeng
+        </button>
+        <button id="submission_button_212" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="212" data-canvas-full-name="Jason Zhang"
+          data-canvas-id="125042" data-css-file-name="zhang_jason125042_question_5177500_14839337_style.css">
+          Jason Zhang
+        </button>
+        <button id="submission_button_213" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="213" data-canvas-full-name="Jiacheng Zhang"
+          data-canvas-id="373030" data-css-file-name="zhang_jiacheng373030_question_5177500_14849840_style.css">
+          Jiacheng Zhang
+        </button>
+        <button id="submission_button_214" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="214" data-canvas-full-name="Lily Zhang"
+          data-canvas-id="123043" data-css-file-name="zhang_lily123043_question_5177500_14790592_style.css">
+          Lily Zhang
+        </button>
+        <button id="submission_button_215" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="215" data-canvas-full-name="Ruining Zhao"
+          data-canvas-id="122658" data-css-file-name="zhao_ruining122658_question_5177500_14776330_style.css">
+          Ruining Zhao
+        </button>
+        <button id="submission_button_216" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="216" data-canvas-full-name="Sarah Zhao"
+          data-canvas-id="123738" data-css-file-name="zhao_sarah123738_question_5177500_14825789_style.css">
+          Sarah Zhao
+        </button>
+        <button id="submission_button_217" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="217" data-canvas-full-name="Xiaotian Zhao"
+          data-canvas-id="388034" data-css-file-name="zhao_xiaotian388034_question_5177500_14807207_style.css">
+          Xiaotian Zhao
+        </button>
+        <button id="submission_button_218" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="218" data-canvas-full-name="Claire Zheng"
+          data-canvas-id="361982" data-css-file-name="zheng_claire361982_question_5177500_14786121_style.css">
+          Claire Zheng
+        </button>
+        <button id="submission_button_219" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="219" data-canvas-full-name="Yuanze Zheng"
+          data-canvas-id="375252" data-css-file-name="zheng_yuanze375252_question_5177500_14753245_style.css">
+          Yuanze Zheng
+        </button>
+        <button id="submission_button_220" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="220" data-canvas-full-name="Ziyang Zheng"
+          data-canvas-id="113056" data-css-file-name="zheng_ziyang113056_question_5177500_14825773_style.css">
+          Ziyang Zheng
+        </button>
+        <button id="submission_button_221" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="221" data-canvas-full-name="Qiantong Zhong"
+          data-canvas-id="85395" data-css-file-name="zhong_qiantong85395_question_5177500_14803525_style.css">
+          Qiantong Zhong
+        </button>
+        <button id="submission_button_222" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="222" data-canvas-full-name="Emily Zhou"
+          data-canvas-id="38545" data-css-file-name="zhou_emily38545_question_5177500_14802012_styles.css">
+          Emily Zhou
+        </button>
+        <button id="submission_button_223" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="223" data-canvas-full-name="Lucy Zhou"
+          data-canvas-id="124955" data-css-file-name="zhou_lucy124955_question_5177500_14851350_style.css">
+          Lucy Zhou
+        </button>
+        <button id="submission_button_224" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="224" data-canvas-full-name="Wentao Zhou"
+          data-canvas-id="365012" data-css-file-name="zhou_wentao365012_question_5177500_14833730_style.css">
+          Wentao Zhou
+        </button>
+        <button id="submission_button_225" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="225" data-canvas-full-name="Ander Zhu"
+          data-canvas-id="94496" data-css-file-name="zhu_ander94496_question_5177500_14852296_style.css">
+          Ander Zhu
+        </button>
+        <button id="submission_button_226" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="226" data-canvas-full-name="Lei Zhu"
+          data-canvas-id="360692" data-css-file-name="zhu_lei360692_question_5177500_14828607_style.css">
+          Lei Zhu
+        </button>
+        <button id="submission_button_227" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="227" data-canvas-full-name="Ziyue Zhuang"
+          data-canvas-id="403426" data-css-file-name="zhuang_ziyue403426_question_5177500_14803060_styles.css">
+          Ziyue Zhuang
+        </button>
+        <button id="submission_button_228" class="submission_button" onclick="swapStyle(this)"
+          style="margin: 8px; width: 100%; height: 48px;" data-button-id="228" data-canvas-full-name="Taylor Ziegler"
+          data-canvas-id="92108" data-css-file-name="ziegler_taylor92108_question_5177500_14805954_style.css">
+          Taylor Ziegler
+        </button>
+        <h4>SCROLL END</h4>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  function swapStyle(button_element) {
+    const button_id = button_element.getAttribute('data-button-id');
+    const canvas_full_name = button_element.getAttribute('data-canvas-full-name');
+    const canvas_id = button_element.getAttribute('data-canvas-id');
+    const css_file_name = button_element.getAttribute('data-css-file-name');
+
+    document.getElementById('count').innerText = `(${button_id})`;
+    document.getElementById('active').innerText = canvas_full_name;
+    document.getElementById('active').setAttribute('data-json-string', JSON.stringify({
+      canvas_full_name: canvas_full_name,
+      canvas_id: canvas_id,
+      css_file_name: css_file_name
+    }));
+
+    // TODO: Point to the correct directory with the css file
+    document.getElementById('submission-style-css').setAttribute('href', `grading/.data/filtered/css/${css_file_name}`);
+  }
+</script>
+
+</html>

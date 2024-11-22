@@ -1,0 +1,27 @@
+{
+  "badia_alex123250_question_5177500_14851024_style.css": {
+    "full_name": "Alex Badia",
+    "canvas_id": "696969",
+    "css_file_name": "badia_alex123250_question_5177500_14851024_style.css",
+    "implementationPoints": 420,
+    "visualPoints": 69,
+    "totalPoints": 489,
+    "comments": []
+  },
+  "brown_charlie113676_question_5177500_14845817_style.css": {
+    "full_name": "Charlie Brown",
+    "canvas_id": "666666",
+    "css_file_name": "brown_charlie113676_question_5177500_14845817_style.css",
+    "implementationPoints": 333,
+    "visualPoints": 333,
+    "totalPoints": 666,
+    "comments": [
+      "Did not set \"display: flex;\" in .wall [-0.5 point]",
+      "Did not set \"flexDirection: column;\" in .wall [-0.5 point]",
+      "Did not set \"justifyContent: space-evenly;\" in .wall [-0.5 point]",
+      "Did not set \"justifyContent: space-around;\" in .row:nth-child(1) [-0.5 point]",
+      "Did not set \"justifyContent: space-between;\" in .row:nth-child(2) [-0.5 point]",
+      "Did not set \"flexDirection: row-reverse;\" in .row:nth-child(3) [-0.5 point]"
+    ]
+  }
+}

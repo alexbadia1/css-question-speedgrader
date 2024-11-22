@@ -1,0 +1,159 @@
+/* DO NOT MODIFY THIS CSS FILE */
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 400px;
+}
+
+.row-1 {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 800px;
+  height: 100px;
+}
+
+.row-2 {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 800px;
+  height: 100px;
+}
+
+.row-3 {
+  position: absolute;
+  top: 275px;
+  left: 0;
+  width: 800px;
+  height: 100px;
+}
+
+.frame {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+  margin: 0px 8px;
+  background-color: #ddc;
+  border: solid 5px #eee;
+  border-radius: 2px;
+  border-top-color: #ddd;
+  border-right-color: #eee;
+  border-left-color: #eee;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25) inset, 0 5px 10px 5px rgba(0, 0, 0, .25);
+  font-size: 14px;
+  text-align: center;
+}
+
+.frame-label {
+  font-size: 14px;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.location-1 {
+  position: absolute;
+  top: 5px;
+  left: 80px;
+}
+
+.location-2 {
+  position: absolute;
+  top: 5px;
+  left: 347px;
+}
+
+.location-3 {
+  position: absolute;
+  top: 5px;
+  left: 615px;
+}
+
+.location-4 {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+}
+
+.location-5 {
+  position: absolute;
+  top: 5px;
+  left: 347px;
+}
+
+.location-6 {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+
+.location-7 {
+  position: absolute;
+  top: 5px;
+  left: 242px;
+}
+
+.location-8 {
+  position: absolute;
+  top: 5px;
+  left: 347px;
+}
+
+.location-9 {
+  position: absolute;
+  top: 5px;
+  left: 453px;
+}
+
+.wall {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.row {
+  width: 800px;
+  height: 100px;
+}
+
+.mona-lisa {
+  height: 70px;
+  width: 90px;
+  margin: 0px 8px;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1374px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.girl-with-the-pearl-earring {
+  height: 70px;
+  width: 90px;
+  margin: 0px 8px;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/1729px-1665_Girl_with_a_Pearl_Earring.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.the-scream {
+  height: 70px;
+  width: 90px;
+  margin: 0px 8px;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/1740px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
